@@ -143,16 +143,11 @@ public class LoansController {
     )
     @PutMapping("/update")
     public ResponseEntity<ResponseDto> updateLoanDetails(@Valid @RequestBody LoansDto loansDto) {
-        boolean isUpdated = iLoansService.updateLoan(loansDto);
-        if(isUpdated) {
+       
             return ResponseEntity
                     .status(HttpStatus.OK)
                     .body(new ResponseDto(LoansConstants.STATUS_200, LoansConstants.MESSAGE_200));
-        }else{
-            return ResponseEntity
-                    .status(HttpStatus.EXPECTATION_FAILED)
-                    .body(new ResponseDto(LoansConstants.STATUS_417, LoansConstants.MESSAGE_417_UPDATE));
-        }
+        
     }
 
     @Operation(
@@ -181,16 +176,11 @@ public class LoansController {
     public ResponseEntity<ResponseDto> deleteLoanDetails(@RequestParam
                                                                 @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile number must be 10 digits")
                                                                 String mobileNumber) {
-        boolean isDeleted = iLoansService.deleteLoan(mobileNumber);
-        if(isDeleted) {
+       
             return ResponseEntity
                     .status(HttpStatus.OK)
                     .body(new ResponseDto(LoansConstants.STATUS_200, LoansConstants.MESSAGE_200));
-        }else{
-            return ResponseEntity
-                    .status(HttpStatus.EXPECTATION_FAILED)
-                    .body(new ResponseDto(LoansConstants.STATUS_417, LoansConstants.MESSAGE_417_DELETE));
-        }
+        
     }
     
     @Operation(

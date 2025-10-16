@@ -148,17 +148,10 @@ public class CardsController {
 	@PutMapping("/update")
 	public ResponseEntity<ResponseDto> updateCard(@Valid @RequestBody CardsDto cardsDto){
 		
-		 boolean isUpdated = cardsService.updateCard(cardsDto);
-	        if(isUpdated) {
-	            return ResponseEntity
+		 return ResponseEntity
 	                    .status(HttpStatus.OK)
 	                    .body(new ResponseDto(CardsConstants.STATUS_200, CardsConstants.MESSAGE_200));
-	        }else{
-	            return ResponseEntity
-	                    .status(HttpStatus.EXPECTATION_FAILED)
-	                    .body(new ResponseDto(CardsConstants.STATUS_417, CardsConstants.MESSAGE_417_UPDATE));
-	        }
-		
+	       
 		
 	}
 	
@@ -188,16 +181,11 @@ public class CardsController {
 			                                      @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile number must be 10 digits")
 			                                      String mobileNum){
 		
-		boolean isDeleted = cardsService.deleteCard(mobileNum);
-        if(isDeleted) {
+		
             return ResponseEntity
                     .status(HttpStatus.OK)
                     .body(new ResponseDto(CardsConstants.STATUS_200, CardsConstants.MESSAGE_200));
-        }else{
-            return ResponseEntity
-                    .status(HttpStatus.EXPECTATION_FAILED)
-                    .body(new ResponseDto(CardsConstants.STATUS_417, CardsConstants.MESSAGE_417_DELETE));
-        }
+       
 	}
 	  
 	  @Operation(

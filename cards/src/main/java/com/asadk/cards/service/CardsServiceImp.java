@@ -75,7 +75,7 @@ public class CardsServiceImp implements ICardsService {
 	}
    
 	@Override
-	public boolean updateCard(CardsDto cardsDto) {
+	public void updateCard(CardsDto cardsDto) {
 	 	
 	 	Cards card = cardsRepo.findByCardNumber(cardsDto.getCardNumber())
 	 			              .orElseThrow(() -> new ResourceNotFoundException("Card","Card Number",cardsDto.getCardNumber()));
@@ -83,19 +83,16 @@ public class CardsServiceImp implements ICardsService {
 	 	CardsMapper.mapToCards(cardsDto, card);
 	 	cardsRepo.save(card);
 	 	
-	 	return true;
 	}
 
 
 	@Override
-	public boolean deleteCard(String mobileNum) {
+	public void deleteCard(String mobileNum) {
 		
 		Cards cards = cardsRepo.findByMobileNumber(mobileNum)
 				               .orElseThrow( () -> new ResourceNotFoundException("Card", "mobileNumber", mobileNum));
 		
         cardsRepo.deleteById(cards.getCardId());
-        return true;
-		
-	}
+   }
 
 }

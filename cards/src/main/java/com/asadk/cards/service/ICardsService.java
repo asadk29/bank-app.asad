@@ -8,8 +8,8 @@ public interface ICardsService {
 	
 	public CardsDto fetchCard(String mobileNum);
 	
-	public boolean updateCard(CardsDto cardsDto);
+	public void updateCard(CardsDto cardsDto);
 	
-	public boolean deleteCard(String mobileNum);
+	public void deleteCard(String mobileNum);
 
 }

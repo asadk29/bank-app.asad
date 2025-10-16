@@ -183,17 +183,10 @@ public class AccountsController {
 																				   message = "Mobile number must be of 10 digits")
 																				   String mobileNum){
 		
-		boolean isUpdated = accountsService.deleteAccountDetails(mobileNum);
-		
-		if(isUpdated) {
-			return ResponseEntity.status(HttpStatus.OK)
+		return ResponseEntity.status(HttpStatus.OK)
 		             .body(new ResponseDto(AccountsConstants.STATUS_200, AccountsConstants.MESSAGE_200));
 
-		}
-		else {
-			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
-                    .body(new ResponseDto(AccountsConstants.STATUS_417, AccountsConstants.MESSAGE_417_DELETE));
-		}
+		
 	}
 	
 	@Operation(
