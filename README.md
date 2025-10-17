@@ -12,7 +12,7 @@
  - **Gateway Server** – Routes client requests to respective microservices.
    
 ## Features
- - **Microservices Architecture** – Independent services for accounts, loans, and cards (Performs CRUD on these services). 
+ - **Microservices Architecture** – Independent services for accounts, loans, and cards (Performs CRUD operation on these services). 
  - **Service Discovery** – Auto-registration and lookup via **Eureka Server**.
  - **Centralized Configurations** – Managed through **Spring Cloud Config Server**. Config repo has configuration related to three different environments (default, production and qa).
  - **API Gateway** – Single entry point for all service endpoints.
@@ -24,6 +24,17 @@
 
 ## Tech Stack
  - Java 21, Spring Boot, Spring Cloud (Eureka, Config, Gateway), Spring Data JPA, H2 Database, Docker.
+
+## Running the Application
+- Build Docker images for each service:
+ ```
+ docker build -t <service-name>
+ ```
+- Start Containers:
+ ```
+ docker compose up -d
+ ```
+
 
  
  
