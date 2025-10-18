@@ -34,6 +34,12 @@
  ```
  docker compose up -d
  ```
+## Access URLs
+ - **Eureka Dashboard:** http://localhost:8070/
+ - **Swagger UI:** swagger-ui/index.html (on each service)
+ - **Config Server:** http://localhost:8071/**
+ - **Gateway Server**: http://localhost:8072/**
+ - **H2 Console:** /h2-console (on each service)
 
 
  
